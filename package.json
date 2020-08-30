@@ -1,0 +1,24 @@
+{
+  "name": "rvc-api",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "node -r esm rvcApi.js",
+    "dev": "nodemon -r esm rvcApi.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "helmet": "^4.1.0",
+    "morgan": "^1.10.0",
+    "sequelize": "^6.3.4",
+    "sqlite3": "^5.0.0",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {},
+  "author": "Luciano Tassara",
+  "license": "ISC"
+}
