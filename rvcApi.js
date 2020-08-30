@@ -20,7 +20,6 @@ app.use(morgan('dev'));
 
 // API
 app.use(bibliaController);
-// app.use('/');
 
 
 const  portBibleApi = process.env.portBibleApi || 3002;
