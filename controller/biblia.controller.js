@@ -239,86 +239,36 @@ bibliaController.route('/').get(
   }
 );
 
-bibliaController.route('/rvc/:book/:chapter/:verse*?').get((req, res, next) => {
-  let chars = req.params.verse.split('-');
-
-  let q = {
-    "book": req.params.book,
-    "chapter": req.params.chapter,
-    "initialVerse": chars[0],
-    "finalVerse": chars[1]
-  };
-
-  (q.finalVerse == undefined ) ? q.finalVerse = q.initialVerse : "";
-
-  // TODO: Hacer que funcione con rurta relativa.
-  let db = new sqlite3.Database('/home/lucho/repo/rvc-api/bibles/RVC.bblx');
-
-      db.all(
-          `select * from Bible b where b.Book = ? and b.Chapter = ? 
-            and b.Verse between ${q.initialVerse} and ${q.finalVerse}`, 
-      [q.book, q.chapter], (err, rows) => {
-        
-        if (err) {
-          res.status(400).json({"error":err.message});
-          return;
-        }
-
-        let arreglo = []; 
-        rows.forEach(l => arreglo.push(l.Scripture + ' ')); 
-
-        
-        res.status(200).json({ 
-                'book': rows[0].Book,
-                'bookShortName': shortName(rows[0].Book),
-                'bookDisplayName': displayName(rows[0].Book),
-                'chapter': rows[0].Chapter,
-                'verse': chars[2],
-                'scripture': arreglo.join(''),
-                'version': 'RVC'
-              });
-    });
-
-  db.close();
-});
-
 
 bibliaController.route('/:version/:cita').get((req, res, next) => {
   // Tomar el codigo de versión del primer parametro
-  // Elegir que BD SQLITE abrir en base a codigo versión
-  let db;
-  let version;
-  // if (req.params.version === "146"){
-  //     // TODO: Hacer que funcione con rurta relativa.
-  //   db = new sqlite3.Database(DB_PATH + 'RVC.bblx');
-  //   version = 'RVC';
-
-  // } else {
-  //     // TODO: Hacer que funcione con rurta relativa.
-  //   db = new sqlite3.Database(DB_PATH + 'RVC.bblx');      
-  //   version = 'RVC';
-
-  // }
-
   let vers = getBibleVersion(parseInt(req.params.version));
-  db = new sqlite3.Database(DB_PATH + vers.ruta);
-  version = vers.version;
-
+  // Elegir que BD SQLITE abrir en base a codigo versión
+  let db = new sqlite3.Database(DB_PATH + vers.ruta);
 
   // Tomar segundo parametro, hacer split por punto. Luego hacer split por guión.
   // JHN.3.16-18
   let chars = req.params.cita.split('.'); // chars  -> ['JHN', '3', '16-18']
-  let intervalo = chars[2].split('-'); // intervalo -> ['16', '18']
+  
+  let intervalo;
+  let capituloCompleto;
+
+  if(chars[2] == undefined){
+    capituloCompleto = true 
+  } else {
+    capituloCompleto = false;
+    intervalo = chars[2].split('-'); // intervalo -> ['16', '18']
+  }
 
   let q = {
     "book": bookNumber(chars[0].toUpperCase()),
     "chapter": chars[1],
-    "initialVerse": intervalo[0],
-    "finalVerse": intervalo[1]
+    "initialVerse": (capituloCompleto) ? 1 : intervalo[0],
+    "finalVerse": (capituloCompleto) ? 200 : intervalo[1]
+
   };
 
   (q.finalVerse == undefined ) ? q.finalVerse = q.initialVerse : "";
-
 
       db.all(
           `select * from Bible b where b.Book = ? and b.Chapter = ? 
@@ -330,33 +280,29 @@ bibliaController.route('/:version/:cita').get((req, res, next) => {
           return;
         }
 
-        let arreglo = []; 
-        rows.forEach(l => arreglo.push(l.Scripture + ' ')); 
+        let arrayScriptures = []; 
+        rows.forEach(l => arrayScriptures.push(l.Scripture + ' ')); 
 
-        let arreglo2 = []; 
-        rows.forEach(v => arreglo2.push(v.Verse)); 
-        console.log(arreglo2[0] +' - '+ arreglo2[arreglo2.length-1]);
-
-
-        // tomar valor real de los versiculos que devuelve
-
+        let arrayVers = []; 
+        rows.forEach(v => arrayVers.push(v.Verse)); 
+        
+        let versCita = (arrayVers.length == 1) ? `${arrayVers[0]}`  : `${arrayVers[0]}-${arrayVers[arrayVers.length-1]}`;
+        let displayCita = `${displayName(rows[0].Book)} ${rows[0].Chapter}:${versCita} (${vers.version})`;
+        
         res.status(200).json({ 
                 'book': rows[0].Book,
                 'bookShortName': shortName(rows[0].Book),
                 'bookDisplayName': displayName(rows[0].Book),
                 'chapter': rows[0].Chapter,
-                'verse': `${arreglo2[0]}-${arreglo2[arreglo2.length-1]}`,
-//                'verse': chars[2],
-                'scripture': arreglo.join(''),
-                'cita': `${displayName(rows[0].Book)} ${rows[0].Chapter}:${arreglo2[0]}-${arreglo2[arreglo2.length-1]} (${version})`,
-                'version': version
+                'verse': versCita,
+                'scripture': arrayScriptures.join(''),
+                'cita': displayCita,
+                'version': vers.version
               });
     });
 
   db.close();
 });
-
-
 
 
 export default bibliaController;
