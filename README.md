@@ -1,7 +1,9 @@
 # rvc-api
+
 NodeJs API that queries a SQlite database of bible verses.
 
 ## Setup
+
 rename .env.sample to .env and modify as needed.
 
 `BIBLE_API_PORT={{port}}    SQLITE_DB_PATH={{path_to_sqlite_databases}}`
@@ -21,11 +23,15 @@ The structure of the DB is only one table named "Bible", with 4 columns:
 `$ node -r esm rvc-api.js`
 
 ## Endpoint
+
 **`http://{host}:{port}/{bibleVersion}/{query}`**
 
 ## Query params
+
 ### Bible Version
+
 For bibleVersion consider this JSON dataset example to modify ```getBibleVersion(n)``` function as needed.
+
 ```JSON
 [
     {
@@ -74,6 +80,7 @@ For bibleVersion consider this JSON dataset example to modify ```getBibleVersion
 ```
 
 ###Verses
+
 To query bible verses you could use one of the following sintaxes
 
 * `{BookKey}.{Chapter}`
