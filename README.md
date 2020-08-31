@@ -4,7 +4,7 @@ NodeJs API that queries a SQlite database of bible verses.
 ## Setup
 rename .env.sample to .env and modify as needed.
 
-`portBibleApi={{port}}    SQLITE_DB_PATH={{path_to_sqlite_databases}}`
+`BIBLE_API_PORT={{port}}    SQLITE_DB_PATH={{path_to_sqlite_databases}}`
 
 SQLITE databeses are not stored in this repo. You will need to add yours.
 
