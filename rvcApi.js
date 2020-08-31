@@ -1,6 +1,5 @@
 require('dotenv').config()
 import express from 'express';
-import winston from 'winston';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import cors from 'cors';
@@ -16,7 +15,6 @@ app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
-// conectarBD();
 
 // API
 app.use(bibliaController);

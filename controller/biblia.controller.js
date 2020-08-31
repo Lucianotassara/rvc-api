@@ -1,6 +1,7 @@
 import express from 'express';
 import { DB_PATH } from '../config';
 const sqlite3 = require('sqlite3').verbose();
+const fetch = require('node-fetch');
 
 const bibliaController = express.Router();
 
@@ -354,5 +355,8 @@ bibliaController.route('/:version/:cita').get((req, res, next) => {
 
   db.close();
 });
+
+
+
 
 export default bibliaController;
