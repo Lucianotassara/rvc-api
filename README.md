@@ -79,7 +79,7 @@ For bibleVersion consider this JSON dataset example to modify ```getBibleVersion
 ]
 ```
 
-###Verses
+### Verses
 
 To query bible verses you could use one of the following sintaxes
 
