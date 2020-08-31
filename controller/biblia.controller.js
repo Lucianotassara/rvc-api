@@ -283,29 +283,36 @@ bibliaController.route('/:version/:cita').get((req, res, next) => {
           return;
         }
 
-        let arrayScriptures = [];
-        rows.forEach(l => arrayScriptures.push(l.Scripture + ' '));
+        // TODO: check for 0 rows result
+        if (rows.length == 0) {
+          res.status(404).json({ 'message': 'No hay resultados, la cita que está buscando no existe' });
+        } else {
 
-        let arrayVers = [];
-        rows.forEach(v => arrayVers.push(v.Verse));
+          let arrayScriptures = [];
+          rows.forEach(l => arrayScriptures.push(l.Scripture + ' '));
 
-        let versCita = (arrayVers.length == 1) ? `${arrayVers[0]}` : `${arrayVers[0]}-${arrayVers[arrayVers.length - 1]}`;
-        let displayCita = `${displayName(rows[0].Book)} ${rows[0].Chapter}:${versCita} (${vers.version})`;
+          let arrayVers = [];
+          rows.forEach(v => arrayVers.push(v.Verse));
 
-        res.status(200).json({
-          'book': rows[0].Book,
-          'bookShortName': shortName(rows[0].Book),
-          'bookDisplayName': displayName(rows[0].Book),
-          'chapter': rows[0].Chapter,
-          'verse': versCita,
-          'scripture': arrayScriptures.join(''),
-          'cita': displayCita,
-          'version': vers.version
+          let versCita = (arrayVers.length == 1) ? `${arrayVers[0]}` : `${arrayVers[0]}-${arrayVers[arrayVers.length - 1]}`;
+          let displayCita = `${displayName(rows[0].Book)} ${rows[0].Chapter}:${versCita} (${vers.version})`;
+
+          res.status(200).json({
+            'book': rows[0].Book,
+            'bookShortName': shortName(rows[0].Book),
+            'bookDisplayName': displayName(rows[0].Book),
+            'chapter': rows[0].Chapter,
+            'verse': versCita,
+            'scripture': arrayScriptures.join(''),
+            'cita': displayCita,
+            'version': vers.version
+          });
+        }
         });
-      });
 
     db.close();
-  }
+  
+}
 });
 
 
