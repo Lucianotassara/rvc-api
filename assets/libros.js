@@ -1,398 +1,332 @@
-[
+export const BIBLE_BOOKS = [
     {
         "id": 1,
         "displayName": "Génesis",
-        "shortName": "GEN",
-        "testament":"AT"
+        "shortName": "GEN"
     },
     {
         "id": 2,
         "displayName": "Éxodo",
-        "shortName": "EXO",
-        "testament":"AT"
+        "shortName": "EXO"
     },
     {
         "id": 3,
         "displayName": "Levítico",
-        "shortName": "LEV",
-        "testament":"AT"
+        "shortName": "LEV"
     },
     {
         "id": 4,
         "displayName": "Números",
-        "shortName": "NUM",
-        "testament":"AT"
+        "shortName": "NUM"
     },
     {
         "id": 5,
         "displayName": "Deuteronomio",
-        "shortName": "DEU",
-        "testament":"AT"
+        "shortName": "DEU"
     },
     {
         "id": 6,
         "displayName": "Josué",
-        "shortName": "JOS",
-        "testament":"AT"
+        "shortName": "JOS"
     },
     {
         "id": 7,
         "displayName": "Jueces",
-        "shortName": "JDG",
-        "testament":"AT"
+        "shortName": "JDG"
     },
     {
         "id": 8,
         "displayName": "Rut",
-        "shortName": "RUT",
-        "testament":"AT"
+        "shortName": "RUT"
     },
     {
         "id": 9,
         "displayName": "1° Samuel",
-        "shortName": "1SA",
-        "testament":"AT"
+        "shortName": "1SA"
     },
     {
         "id": 10,
         "displayName": "2° Samuel",
-        "shortName": "2SA",
-        "testament":"AT"
+        "shortName": "2SA"
     },
     {
         "id": 11,
         "displayName": "1° Reyes",
-        "shortName": "1KI",
-        "testament":"AT"
+        "shortName": "1KI"
     },
     {
         "id": 12,
         "displayName": "2° Reyes",
-        "shortName": "2KI",
-        "testament":"AT"
+        "shortName": "2KI"
     },
     {
         "id": 13,
         "displayName": "1° Crónicas",
-        "shortName": "1CH",
-        "testament":"AT"
+        "shortName": "1CH"
     },
     {
         "id": 14,
         "displayName": "2° Crónicas",
-        "shortName": "2CH",
-        "testament":"AT"
+        "shortName": "2CH"
     },
     {
         "id": 15,
         "displayName": "Esdras",
-        "shortName": "EZR",
-        "testament":"AT"
+        "shortName": "EZR"
     },
     {
         "id": 16,
         "displayName": "Nehemías",
-        "shortName": "NEH",
-        "testament":"AT"
+        "shortName": "NEH"
     },
     {
         "id": 17,
         "displayName": "Ester",
-        "shortName": "EST",
-        "testament":"AT"
+        "shortName": "EST"
     },
     {
         "id": 18,
         "displayName": "Job",
-        "shortName": "JOB",
-        "testament":"AT"
+        "shortName": "JOB"
     },
     {
         "id": 19,
         "displayName": "Salmos",
-        "shortName": "PSA",
-        "testament":"AT"
+        "shortName": "PSA"
     },
     {
         "id": 20,
         "displayName": "Proverbios",
-        "shortName": "PRO",
-        "testament":"AT"
+        "shortName": "PRO"
     },
     {
         "id": 21,
         "displayName": "Eclesiastés",
-        "shortName": "ECC",
-        "testament":"AT"
+        "shortName": "ECC"
     },
     {
         "id": 22,
         "displayName": "Cantares",
-        "shortName": "SNG",
-        "testament":"AT"
+        "shortName": "SNG"
     },
     {
         "id": 23,
         "displayName": "Isaías",
-        "shortName": "ISA",
-        "testament":"AT"
+        "shortName": "ISA"
     },
     {
         "id": 24,
         "displayName": "Jeremías",
-        "shortName": "JER",
-        "testament":"AT"
+        "shortName": "JER"
     },
     {
         "id": 25,
         "displayName": "Lamentaciones",
-        "shortName": "LAM",
-        "testament":"AT"
+        "shortName": "LAM"
     },
     {
         "id": 26,
         "displayName": "Ezequiel",
-        "shortName": "EZK",
-        "testament":"AT"
+        "shortName": "EZK"
     },
     {
         "id": 27,
         "displayName": "Daniel",
-        "shortName": "DAN",
-        "testament":"AT"
+        "shortName": "DAN"
     },
     {
         "id": 28,
         "displayName": "Oseas",
-        "shortName": "HOS",
-        "testament":"AT"
+        "shortName": "HOS"
     },
     {
         "id": 29,
         "displayName": "Joel",
-        "shortName": "JOL",
-        "testament":"AT"
+        "shortName": "JOL"
     },
     {
         "id": 30,
         "displayName": "Amós",
-        "shortName": "AMO",
-        "testament":"AT"
+        "shortName": "AMO"
     },
     {
         "id": 31,
         "displayName": "Abdías",
-        "shortName": "OBA",
-        "testament":"AT"
+        "shortName": "OBA"
     },
     {
         "id": 32,
         "displayName": "Jonás",
-        "shortName": "JON",
-        "testament":"AT"
+        "shortName": "JON"
     },
     {
         "id": 33,
         "displayName": "Miqueas",
-        "shortName": "MIC",
-        "testament":"AT"
+        "shortName": "MIC"
     },
     {
         "id": 34,
         "displayName": "Nahúm",
-        "shortName": "NAM",
-        "testament":"AT"
+        "shortName": "NAM"
     },
     {
         "id": 35,
         "displayName": "Habacuc",
-        "shortName": "HAB",
-        "testament":"AT"
+        "shortName": "HAB"
     },
     {
         "id": 36,
         "displayName": "Sofonías",
-        "shortName": "ZEP",
-        "testament":"AT"
+        "shortName": "ZEP"
     },
     {
         "id": 37,
         "displayName": "Hageo",
-        "shortName": "HAG",
-        "testament":"AT"
+        "shortName": "HAG"
     },
     {
         "id": 38,
         "displayName": "Zacarías",
-        "shortName": "ZEC",
-        "testament":"AT"
+        "shortName": "ZEC"
     },
     {
         "id": 39,
         "displayName": "Malaquías",
-        "shortName": "MAL",
-        "testament":"AT"
+        "shortName": "MAL"
     },
     {
         "id": 40,
         "displayName": "Mateo",
-        "shortName": "MAT",
-        "testament":"NT"
+        "shortName": "MAT"
     },
     {
         "id": 41,
         "displayName": "Marcos",
-        "shortName": "MRK",
-        "testament":"NT"
+        "shortName": "MRK"
     },
     {
         "id": 42,
         "displayName": "Lucas",
-        "shortName": "LUK",
-        "testament":"NT"
+        "shortName": "LUK"
     },
     {
         "id": 43,
         "displayName": "Juan",
-        "shortName": "JHN",
-        "testament":"NT"
+        "shortName": "JHN"
     },
     {
         "id": 44,
         "displayName": "Hechos",
-        "shortName": "ACT",
-        "testament":"NT"
+        "shortName": "ACT"
     },
     {
         "id": 45,
         "displayName": "Romanos",
-        "shortName": "ROM",
-        "testament":"NT"
+        "shortName": "ROM"
     },
     {
         "id": 46,
         "displayName": "1° Corintios",
-        "shortName": "1CO",
-        "testament":"NT"
+        "shortName": "1CO"
     },
     {
         "id": 47,
         "displayName": "2° Corintios",
-        "shortName": "2CO",
-        "testament":"NT"
+        "shortName": "2CO"
     },
     {
         "id": 48,
         "displayName": "Gálatas",
-        "shortName": "GAL",
-        "testament":"NT"
+        "shortName": "GAL"
     },
     {
         "id": 49,
         "displayName": "Efesios",
-        "shortName": "EPH",
-        "testament":"NT"
+        "shortName": "EPH"
     },
     {
         "id": 50,
         "displayName": "Filipenses",
-        "shortName": "PHP",
-        "testament":"NT"
+        "shortName": "PHP"
     },
     {
         "id": 51,
         "displayName": "Colosenses",
-        "shortName": "COL",
-        "testament":"NT"
+        "shortName": "COL"
     },
     {
         "id": 52,
         "displayName": "1° Tesalonicenses",
-        "shortName": "1TH",
-        "testament":"NT"
+        "shortName": "1TH"
     },
     {
         "id": 53,
         "displayName": "2° Tesalonicenses",
-        "shortName": "2TH",
-        "testament":"NT"
+        "shortName": "2TH"
     },
     {
         "id": 54,
         "displayName": "1° Timoteo",
-        "shortName": "1TI",
-        "testament":"NT"
+        "shortName": "1TI"
     },
     {
         "id": 55,
         "displayName": "2° Timoteo",
-        "shortName": "2TI",
-        "testament":"NT"
+        "shortName": "2TI"
     },
     {
         "id": 56,
         "displayName": "Tito",
-        "shortName": "TIT",
-        "testament":"NT"
+        "shortName": "TIT"
     },
     {
         "id": 57,
         "displayName": "Filemón",
-        "shortName": "PHM",
-        "testament":"NT"
+        "shortName": "PHM"
     },
     {
         "id": 58,
         "displayName": "Hebreos",
-        "shortName": "HEB",
-        "testament":"NT"
+        "shortName": "HEB"
     },
     {
         "id": 59,
         "displayName": "Santiago",
-        "shortName": "JAS",
-        "testament":"NT"
+        "shortName": "JAS"
     },
     {
         "id": 60,
         "displayName": "1° Pedro",
-        "shortName": "1PE",
-        "testament":"NT"
+        "shortName": "1PE"
     },
     {
         "id": 61,
         "displayName": "2° Pedro",
-        "shortName": "2PE",
-        "testament":"NT"
+        "shortName": "2PE"
     },
     {
         "id": 62,
         "displayName": "1° Juan",
-        "shortName": "1JN",
-        "testament":"NT"
+        "shortName": "1JN"
     },
     {
         "id": 63,
         "displayName": "2° Juan",
-        "shortName": "2JN",
-        "testament":"NT"
+        "shortName": "2JN"
     },
     {
         "id": 64,
         "displayName": "3° Juan",
-        "shortName": "3JN",
-        "testament":"NT"
+        "shortName": "3JN"
     },
     {
         "id": 65,
         "displayName": "Judas",
-        "shortName": "JUD",
-        "testament":"NT"
+        "shortName": "JUD"
     },
     {
         "id": 66,
         "displayName": "Apocalipsis",
-        "shortName": "REV",
-        "testament":"NT"
+        "shortName": "REV"
     }
 ]

@@ -1,5 +1,7 @@
 import express from 'express';
 const sqlite3 = require('sqlite3').verbose();
+import { BIBLE_VERSIONS } from '../assets/bibleVersions'
+import {BIBLE_BOOKS} from '../assets/libros'
 
 const bibliaController = express.Router();
 
@@ -233,7 +235,12 @@ function getBibleVersion(n) {
 
 bibliaController.route('/').get(
   (req, res) => {
-    res.json({ message: 'Hello / !' })
+    res.json({help: "You can make your request providing your own SQlite databases, make sure your database is correctly placed, check your .env file",
+              message: `So.. Everything ready? Try this url-> http://localhost:${process.env.BIBLE_API_PORT}/146/JHN.3.16-18 - You can make your queries using the data listed below` ,
+              books: BIBLE_BOOKS,
+              versions: BIBLE_VERSIONS
+  
+  })
   }
 );
 
@@ -273,8 +280,7 @@ bibliaController.route('/:version/:cita').get((req, res, next) => {
 
     (q.finalVerse == undefined) ? q.finalVerse = q.initialVerse : "";
 
-    db.all(
-      `select * from Bible b where b.Book = ? and b.Chapter = ? 
+    db.all(`select * from Bible b where b.Book = ? and b.Chapter = ? 
               and b.Verse between ${q.initialVerse} and ${q.finalVerse}`,
       [q.book, q.chapter], (err, rows) => {
 
@@ -283,7 +289,6 @@ bibliaController.route('/:version/:cita').get((req, res, next) => {
           return;
         }
 
-        // TODO: check for 0 rows result
         if (rows.length == 0) {
           res.status(404).json({ 'message': 'No hay resultados, la cita que está buscando no existe' });
         } else {
@@ -308,10 +313,8 @@ bibliaController.route('/:version/:cita').get((req, res, next) => {
             'version': vers.version
           });
         }
-        });
-
+      });
     db.close();
-  
 }
 });
 

@@ -1,4 +1,4 @@
-[
+export const BIBLE_VERSIONS = [
     {
         "codigo": "146",
         "shortName": "RVC",
