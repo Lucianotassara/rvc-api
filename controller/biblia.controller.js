@@ -1,7 +1,6 @@
 import express from 'express';
 import { DB_PATH } from '../config';
 const sqlite3 = require('sqlite3').verbose();
-const fetch = require('node-fetch');
 
 const bibliaController = express.Router();
 
@@ -244,7 +243,7 @@ bibliaController.route('/:version/:cita').get((req, res, next) => {
   // Tomar el codigo de versión del primer parametro
   let vers = getBibleVersion(parseInt(req.params.version));
   // Elegir que BD SQLITE abrir en base a codigo versión
-  let db = new sqlite3.Database(DB_PATH + vers.ruta);
+  let db = new sqlite3.Database(process.env.DB_PATH + vers.ruta);
 
   // Tomar segundo parametro, hacer split por punto. Luego hacer split por guión.
   // JHN.3.16-18
