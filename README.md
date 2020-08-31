@@ -80,7 +80,6 @@ To query bible verses you could use one of the following sintaxes
 * `{BookKey}.{Chapter}.{verse}`
 * `{BookKey}.{Chapter}.{initialVerse}-{finalVerse}`
 
-
 For book Reference refer to the table below:
 BookKey|BookName
 ---|:-------------:

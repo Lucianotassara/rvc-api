@@ -20,7 +20,7 @@ app.use(morgan('dev'));
 app.use(bibliaController);
 
 
-const  portBibleApi = process.env.portBibleApi || 3002;
+const  portBibleApi = process.env.BIBLE_API_PORT || 3002;
 
 app.listen(portBibleApi, () => {
   console.log(`Started successfully server at port ${portBibleApi}`);
