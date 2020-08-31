@@ -1,5 +1,5 @@
 # rvc-api
-NodeJs API that query a SQlite database of bible verses.
+NodeJs API that queries a SQlite database of bible verses.
 
 ## Setup
 rename .env.sample to .env and modify as needed.
