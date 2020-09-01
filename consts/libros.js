@@ -330,3 +330,75 @@ export const BIBLE_BOOKS = [
         "shortName": "REV"
     }
 ]
+
+export function bookNumber(shortName) {
+      switch (shortName) {
+        case 'GEN': return 1;
+        case 'EXO': return 2;
+        case 'LEV': return 3;
+        case 'NUM': return 4;
+        case 'DEU': return 5;
+        case 'JOS': return 6;
+        case 'JDG': return 7;
+        case 'RUT': return 8;
+        case '1SA': return 9;
+        case '2SA': return 10;
+        case '1KI': return 11;
+        case '2KI': return 12;
+        case '1CH': return 13;
+        case '2CH': return 14;
+        case 'EZR': return 15;
+        case 'NEH': return 16;
+        case 'EST': return 17;
+        case 'JOB': return 18;
+        case 'PSA': return 19;
+        case 'PRO': return 20;
+        case 'ECC': return 21;
+        case 'SNG': return 22;
+        case 'ISA': return 23;
+        case 'JER': return 24;
+        case 'LAM': return 25;
+        case 'EZK': return 26;
+        case 'DAN': return 27;
+        case 'HOS': return 28;
+        case 'JOL': return 29;
+        case 'AMO': return 30;
+        case 'OBA': return 31;
+        case 'JON': return 32;
+        case 'MIC': return 33;
+        case 'NAM': return 34;
+        case 'HAB': return 35;
+        case 'ZEP': return 36;
+        case 'HAG': return 37;
+        case 'ZEC': return 38;
+        case 'MAL': return 39;
+        case 'MAT': return 40;
+        case 'MRK': return 41;
+        case 'LUK': return 42;
+        case 'JHN': return 43;
+        case 'ACT': return 44;
+        case 'ROM': return 45;
+        case '1CO': return 46;
+        case '2CO': return 47;
+        case 'GAL': return 48;
+        case 'EPH': return 49;
+        case 'PHP': return 50;
+        case 'COL': return 51;
+        case '1TH': return 52;
+        case '2TH': return 53;
+        case '1TI': return 54;
+        case '2TI': return 55;
+        case 'TIT': return 56;
+        case 'PHM': return 57;
+        case 'HEB': return 58;
+        case 'JAS': return 59;
+        case '1PE': return 60;
+        case '2PE': return 61;
+        case '1JN': return 62;
+        case '2JN': return 63;
+        case '3JN': return 64;
+        case 'JUD': return 65;
+        case 'REV': return 66;
+        default: break;
+      }
+    }
