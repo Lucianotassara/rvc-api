@@ -5,7 +5,6 @@ import morgan from 'morgan';
 import cors from 'cors';
 import helmet from 'helmet';
 
-
 import { bibliaController } from './controller'
 
 const app = express();
