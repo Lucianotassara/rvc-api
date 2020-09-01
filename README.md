@@ -4,9 +4,13 @@ NodeJs API that queries a SQlite database of bible verses.
 
 ## Setup
 
-rename .env.sample to .env and modify as needed.
+rename **.env.sample** to **.env** and modify as needed.
 
-`BIBLE_API_PORT={{port}}    SQLITE_DB_PATH={{path_to_sqlite_databases}}`
+`BIBLE_API_PORT={{port}}`
+
+`SQLITE_DB_PATH={{path_to_sqlite_databases}}`
+
+## Databases
 
 SQLITE databeses are not stored in this repo. You will need to add yours.
 
@@ -20,6 +24,7 @@ The structure of the DB is only one table named "Bible", with 4 columns:
 ## Run project
 
 `$ npm install`
+
 `$ node -r esm rvc-api.js`
 
 ## Endpoint
