@@ -62,7 +62,7 @@ bibliaController.route('/:version/:cita').get((req, res, next) => {
         } else {
 
           let arrayScriptures = [];
-          rows.forEach(l => arrayScriptures.push(l.Scripture + ' '));
+          rows.forEach(l => arrayScriptures.push(l.Scripture));
 
           let arrayVers = [];
           rows.forEach(v => arrayVers.push(v.Verse));
@@ -76,7 +76,7 @@ bibliaController.route('/:version/:cita').get((req, res, next) => {
             'bookDisplayName': BIBLE_BOOKS[rows[0].Book - 1].displayName,
             'chapter': rows[0].Chapter,
             'verse': versCita,
-            'scripture': arrayScriptures.join(''),
+            'scripture': arrayScriptures.join(' '),
             'cita': displayCita,
             'version': vers.version
           });
