@@ -44,7 +44,7 @@ export const BIBLE_VERSIONS = [
 ]
 
 export function getBibleVersion(n) {
-    switch (n) {
+    switch (n.toUpperCase()) {
         // Ingreso con codigo letras
         case 'RVC': return { "ruta": "RVC.bblx", "version": "RVC" , "id": "146"}
         case 'DHH': return { "ruta": "DHH.bblx", "version": "DHH" , "id": "411"}
