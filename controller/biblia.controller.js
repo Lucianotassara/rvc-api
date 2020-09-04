@@ -15,6 +15,12 @@ bibliaController.route('/help').get(
   }
 );
 
+bibliaController.route('/').get(
+  (req, res) => {
+    res.redirect('https://encuentrovida.com.ar')
+  }
+);
+
 bibliaController.route('/:version/:cita').get((req, res, next) => {
   // Tomar el codigo de versión del primer parametro
   let vers = getBibleVersion(parseInt(req.params.version));
