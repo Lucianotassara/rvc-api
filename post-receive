@@ -1,0 +1,14 @@
+echo rvc-api post-receive: Triggered.
+cd /home/evida/web/bible.encuentrovida.com.ar/public_html
+echo post-receive: git check out…
+git --git-dir=/home/evida/rvc-api.git --work-tree=/home/evida/web/bible.encuentrovida.com.ar/public_html checkout master -f
+echo post-receive: npm install
+npm install \
+&& echo post-receive: building... \
+&& echo post-receive: → done. \
+&& pm2 stop rvc-api\
+&& pm2 updatePM2\
+&& pm2 start ecosystem.config.js\
+&& pm2 env 0\
+&& pm2 show 0 \
+&& echo post-receive: rvc-api started successfully with pm2.
