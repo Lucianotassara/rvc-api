@@ -23,7 +23,8 @@ bibliaController.route('/').get(
 
 bibliaController.route('/:version/:cita').get((req, res, next) => {
   // Tomar el codigo de versión del primer parametro
-  let vers = getBibleVersion(parseInt(req.params.version));
+  let vers = getBibleVersion(req.params.version);
+  // let vers = getBibleVersion(parseInt(req.params.version));
   // Elegir que BD SQLITE abrir en base a codigo versión
   let db = new sqlite3.Database(process.env.SQLITE_DB_PATH + vers.ruta);
 
