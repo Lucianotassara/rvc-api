@@ -21,6 +21,16 @@ bibliaController.route('/').get(
   }
 );
 
+function convertToPlain(rtf) {
+  // rtf = rtf.replace(/\\par[d]?/g, "");
+  // return rtf.replace(/\{\*?\\[^{}]+}|[{}]|\\\n?[A-Za-z]+\n?(?:-?\d+)?[ ]?/g, "").trim();
+
+  rtf = rtf.replace(/\\par[d]?/g, "");
+  rtf = rtf.replace(/\{\*?\\[^{}]+}|[{}]|\\\n?[A-Za-z]+\n?(?:-?\d+)?[ ]?/g, "")
+  return rtf.replace(/\\'[0-9a-zA-Z]{2}/g, "").trim();
+
+}
+
 bibliaController.route('/:version/:cita').get((req, res, next) => {
   // Tomar el codigo de versión del primer parametro
   let vers = getBibleVersion(req.params.version);
@@ -71,7 +81,7 @@ bibliaController.route('/:version/:cita').get((req, res, next) => {
           } else {
 
             let arrayScriptures = [];
-            rows.forEach(l => arrayScriptures.push(l.Scripture));
+            rows.forEach(l => arrayScriptures.push(convertToPlain(l.Scripture)));
 
             let arrayVers = [];
             rows.forEach(v => arrayVers.push(v.Verse));
