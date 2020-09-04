@@ -22,9 +22,6 @@ bibliaController.route('/').get(
 );
 
 function convertToPlain(rtf) {
-  // rtf = rtf.replace(/\\par[d]?/g, "");
-  // return rtf.replace(/\{\*?\\[^{}]+}|[{}]|\\\n?[A-Za-z]+\n?(?:-?\d+)?[ ]?/g, "").trim();
-
   rtf = rtf.replace(/\\par[d]?/g, "");
   rtf = rtf.replace(/\{\*?\\[^{}]+}|[{}]|\\\n?[A-Za-z]+\n?(?:-?\d+)?[ ]?/g, "")
   return rtf.replace(/\\'[0-9a-zA-Z]{2}/g, "").trim();
@@ -58,7 +55,7 @@ bibliaController.route('/:version/:cita').get((req, res, next) => {
       "book": bookNumber(chars[0].toUpperCase()),
       "chapter": chars[1],
       "initialVerse": (capituloCompleto) ? 1 : intervalo[0],
-      "finalVerse": (capituloCompleto) ? 200 : intervalo[1]
+      "finalVerse": (capituloCompleto) ? 176 : intervalo[1] // 176 es numero mas alto de versiculo que existe.
     };
 
     if (q.chapter == undefined) {
