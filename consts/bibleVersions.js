@@ -63,5 +63,7 @@ export function getBibleVersion(n) {
         case '150': return { "ruta": "RV95.bblx", "version": "RV95" }
         case '197': return { "ruta": "PDT.bblx", "version": "PDT" }
         
+        default: return {'error': true}
+        // retornar default cuando no se reconoce la versión para que no falle.
     }
   }
