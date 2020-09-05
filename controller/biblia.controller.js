@@ -84,7 +84,7 @@ bibliaController.route('/:version/:cita').get((req, res, next) => {
             rows.forEach(v => arrayVers.push(v.Verse));
 
             let versCita = (arrayVers.length == 1) ? `${arrayVers[0]}` : `${arrayVers[0]}-${arrayVers[arrayVers.length - 1]}`;
-            let displayCita = `${BIBLE_BOOKS[rows[0].Book - 1].displayName} ${rows[0].Chapter}:${versCita} (${vers.version})`;
+            let displayCita = `${BIBLE_BOOKS[rows[0].Book - 1].displayName} ${rows[0].Chapter}:${versCita} (${getBibleVersion(vers.version)})`;
 
             res.status(200).json({
               'book': rows[0].Book,
@@ -94,7 +94,8 @@ bibliaController.route('/:version/:cita').get((req, res, next) => {
               'verse': versCita,
               'scripture': arrayScriptures.join(' '),
               'cita': displayCita,
-              'version': vers.version
+              // 'version': vers.version
+              'version': getBibleVersion(vers.version)
             });
           }
         });
