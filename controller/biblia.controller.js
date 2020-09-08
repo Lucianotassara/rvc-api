@@ -95,6 +95,7 @@ bibliaController.route('/:version/:cita').get((req, res, next) => {
               'scripture': arrayScriptures.join(' '),
               'cita': displayCita,
               'version': vers.version
+              
             });
           }
         });
