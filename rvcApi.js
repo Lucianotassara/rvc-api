@@ -18,6 +18,24 @@ app.use(morgan('tiny'));
 // API
 app.use(bibliaController);
 
+function notFound(req, res, next) {
+  const error = new Error(`Not Found - ${req.originalUrl}`);
+  error.status = 404;
+  next(error);
+}
+
+// eslint-disable-next-line
+function errorHandler(err, req, res, next) {
+  const status = err.status || 500;
+  res.status(status);
+  res.json({
+    status,
+    message: err.message,
+  });
+}
+
+app.use(notFound);
+app.use(errorHandler);
 
 const  portBibleApi = process.env.BIBLE_API_PORT || 3002;
 
