@@ -65,8 +65,8 @@ bibliaController.route('/:version/:cita').get((req, res, next) => {
       (q.finalVerse == undefined) ? q.finalVerse = q.initialVerse : "";
 
       db.all(`select * from Bible b where b.Book = ? and b.Chapter = ? 
-                and b.Verse between ${q.initialVerse} and ${q.finalVerse}`,
-        [q.book, q.chapter], (err, rows) => {
+                and b.Verse between ? and ? `,
+        [q.book, q.chapter, q.initialVerse, q.finalVerse], (err, rows) => {
 
           if (err) {
             res.status(400).json({ "error": err.message });
