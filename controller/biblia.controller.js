@@ -32,7 +32,7 @@ bibliaController.route('/:version/:cita').get((req, res, next) => {
   // Tomar el codigo de versión del primer parametro
   let vers = getBibleVersion(req.params.version);
   if (vers.error){ 
-    res.status(402).json({ 'Error': 'No se reconoce la versión.' })
+    res.status(402).json({ 'error': 'No se reconoce la versión.' })
   } else {
     // Elegir que BD SQLITE abrir en base a codigo versión
     let db = new sqlite3.Database(process.env.SQLITE_DB_PATH + vers.ruta);
@@ -59,7 +59,7 @@ bibliaController.route('/:version/:cita').get((req, res, next) => {
     };
 
     if (q.chapter == undefined) {
-      res.status(402).json({ 'Error': 'Bad Request. No se reconoce el capitulo.' })
+      res.status(402).json({ 'error': 'Bad Request. No se reconoce el capitulo.' })
     } else {
 
       (q.finalVerse == undefined) ? q.finalVerse = q.initialVerse : "";
@@ -74,7 +74,7 @@ bibliaController.route('/:version/:cita').get((req, res, next) => {
           }
 
           if (rows.length == 0) {
-            res.status(404).json({ 'error':true,'message': 'No hay resultados, la cita que está buscando no existe' });
+            res.status(404).json({ 'error':'No hay resultados, la cita que está buscando no existe' });
           } else {
 
             let arrayScriptures = [];
