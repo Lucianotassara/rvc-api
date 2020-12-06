@@ -74,7 +74,7 @@ bibliaController.route('/:version/:cita').get((req, res, next) => {
           }
 
           if (rows.length == 0) {
-            res.status(404).json({ 'message': 'No hay resultados, la cita que está buscando no existe' });
+            res.status(404).json({ 'error':true,'message': 'No hay resultados, la cita que está buscando no existe' });
           } else {
 
             let arrayScriptures = [];
