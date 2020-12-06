@@ -30,7 +30,7 @@ function errorHandler(err, req, res, next) {
   res.status(status);
   res.json({
     status,
-    message: err.message,
+    error: err.message,
   });
 }
 
