@@ -8,7 +8,7 @@ const bibliaController = express.Router();
 bibliaController.route('/help').get(
   (req, res) => {
     res.json({help: "You can make your request providing your own SQlite databases, make sure your database is correctly placed, check your .env file",
-              message: `So.. Everything ready? Try this url-> http://{{host}}:${process.env.BIBLE_API_PORT}/146/JHN.3.16-18 - You can make your queries using the data listed below` ,
+              message: `So.. Everything ready? Try this url-> http://{{HOST}}:{{PORT}}/146/JHN.3.16-18 - You can make your queries using the data listed below` ,
               versions: BIBLE_VERSIONS,
               books: BIBLE_BOOKS
             })
