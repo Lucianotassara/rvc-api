@@ -30,7 +30,7 @@ rvc-api/
 ## Development Setup
 
 ### Prerequisites
-- Node.js (tested with the version compatible with `esm` ^3.2.25)
+- Node.js >= 24
 - SQLite `.bblx` database files (not included in repo — must be provided separately)
 
 ### Installation
@@ -57,7 +57,7 @@ npm start       # Production
 npm run dev     # Development with nodemon auto-reload
 ```
 
-Both commands use `node -r esm` to enable ES6 module syntax.
+Node.js v24 handles ES modules natively via `"type": "module"` in `package.json`. No transpilation layer needed.
 
 ---
 
@@ -109,7 +109,9 @@ Main query endpoint.
 ## Codebase Conventions
 
 ### Module System
-The project uses **ES6 `import`/`export` syntax** throughout, enabled at runtime via the `esm` package. Do not mix in CommonJS `require()` calls in new code.
+The project uses **ES6 `import`/`export` syntax** throughout via `"type": "module"` in `package.json` (Node.js native ESM). Do not mix in CommonJS `require()` calls in new code. All local imports **must include the `.js` extension** (e.g. `import foo from './foo.js'`) — Node's native ESM resolver does not add extensions automatically.
+
+The only exception is `ecosystem.config.cjs`, which uses `module.exports` and the `.cjs` extension to remain CommonJS-compatible for PM2.
 
 ### Code Style
 - No linting or formatting tools configured — follow the existing style
@@ -155,11 +157,11 @@ Scripture text from the database contains RTF markup. The controller strips it u
 The project uses **PM2** for process management and a **git post-receive hook** for deployment.
 
 ### PM2
-Configuration is in `ecosystem.config.js`. The app runs as `rvc-api` with a 1GB memory limit.
+Configuration is in `ecosystem.config.cjs`. The app runs as `rvc-api` with a 1GB memory limit.
 
 ```bash
-pm2 start ecosystem.config.js --env prod   # Production
-pm2 start ecosystem.config.js --env desa   # Development
+pm2 start ecosystem.config.cjs --env prod   # Production
+pm2 start ecosystem.config.cjs --env desa   # Development
 ```
 
 ### Git Hook
@@ -188,7 +190,7 @@ pm2 start ecosystem.config.js --env desa   # Development
 | `controller/biblia.controller.js` | Route handlers, DB queries, response assembly |
 | `consts/bibleVersions.js` | `BIBLE_VERSIONS` array, `getBibleVersion(n)` lookup |
 | `consts/libros.js` | `BIBLE_BOOKS` array, `bookNumber(shortName)` lookup |
-| `ecosystem.config.js` | PM2 config for dev/prod environments |
+| `ecosystem.config.cjs` | PM2 config for dev/prod environments |
 | `.env.sample` | Environment variable template |
 | `bibles/README.md` | Instructions for adding SQLite database files |
 

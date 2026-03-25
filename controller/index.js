@@ -1,4 +1,4 @@
-import bibliaController from './biblia.controller'
+import bibliaController from './biblia.controller.js'
 
 export {
     bibliaController

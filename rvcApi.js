@@ -1,11 +1,11 @@
-require('dotenv').config()
+import 'dotenv/config';
 import express from 'express';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import cors from 'cors';
 import helmet from 'helmet';
 
-import { bibliaController } from './controller'
+import { bibliaController } from './controller/index.js'
 
 const app = express();
 

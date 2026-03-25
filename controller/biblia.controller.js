@@ -1,7 +1,8 @@
 import express from 'express';
-const sqlite3 = require('sqlite3').verbose();
-import { BIBLE_VERSIONS, getBibleVersion} from '../consts/bibleVersions'
-import {BIBLE_BOOKS, bookNumber} from '../consts/libros'
+import sqlite3pkg from 'sqlite3';
+const sqlite3 = sqlite3pkg.verbose();
+import { BIBLE_VERSIONS, getBibleVersion } from '../consts/bibleVersions.js'
+import { BIBLE_BOOKS, bookNumber } from '../consts/libros.js'
 
 const bibliaController = express.Router();
 
